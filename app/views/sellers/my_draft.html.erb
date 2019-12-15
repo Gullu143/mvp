@@ -1,0 +1,18 @@
+<div class="container">
+	<table class="table table-bordered">
+		<tr>
+			<th>name</th>
+			<th>Action</th>
+		</tr>
+		<% @article.draft.each do |draft|%>
+			<tr>
+				<td><%= draft.title%></td>
+				<td>
+					<%= link_to 'edit', edit_article_path(draft)%>
+					<%= link_to 'delete', article_path(draft),  method: :delete, data: { confirm: 'Are you sure?'}%>
+				</td>
+			</tr>
+		<%end%>
+	</table>
+</div>
+

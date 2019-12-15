@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  template: template0
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+
+development:
+  <<: *default
+  database: mvp_development
+  host: localhost
+  port: 5432
+  username: rails_dev
+  password: password
+
+test:
+  <<: *default
+  database: mvp_test
+  host: localhost
+  port: 5432
+  username: rails_dev
+  password: password
+
+production:
+  <<: *default
+  database: mvp_production
+  username: freelance
+  password: <%= ENV['FREELANCE_DATABASE_PASSWORD'] %>

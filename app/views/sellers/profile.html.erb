@@ -1,0 +1,40 @@
+<div class="container">
+	<h1>profile</h1>
+	<strong>Name:</strong>
+	<%= @seller.name%><br>
+	<strong>Email:</strong>
+	<%= @seller.email%><br>
+	<strong>Phone Number:</strong>
+	<%= @seller.phone_number%><br>
+	<strong>Profile picture</strong><br>
+	<%= image_tag(@seller.image, class: 'img-fluid', size: '250x250') if @seller.image.attached? %>
+
+	<%= link_to 'edit profile', edit_seller_registration_path %>
+	
+<h1 class="text-center mt-5">LIst of all my articles</h1>
+<table class="table table-bordered">
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Action</th>
+	</tr>
+	<%current_seller.articles.each do |article|%>
+	<tr>
+		
+		<td><%=article.title%></td>
+		<td><%=article.description.truncate(80)%></td>
+		<td>
+			<%= link_to 'edit', edit_article_path(article), class: 'btn btn-primary' %>
+			<%= link_to 'delete', article_path(article), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?'} %>
+			<%= link_to 'show', article_path(article), class: 'btn btn-primary'%>		
+		</td>
+	</tr>
+	<%end%>
+</table>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+<div class="container py-3">
+	<% if params[:query].present? %>
+		<% @articles.each do |article|%>
+			<%= link_to article_path(article) do %>
+				<%= article.title%>
+			<%end%>
+		<%end%>
+	<%else%>
+	not found
+	<%end%>
+</div>

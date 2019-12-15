@@ -1,0 +1,26 @@
+<div class="container py-5">
+	<div class="col-md-8 mx-auto card card-body">
+		<h1><%= @article.title%></h1>
+		<%= image_tag (@article.image), class:'img-fluid' if @article.image.attached?%>
+		<%= @article.description%>
+		<h3>comments</h3>
+		<hr>
+		<% @comments.each do |comment|%>
+		<strong>
+			<%= comment.buyer.email%>
+		</strong>
+		<%= comment.commenter%>
+		<hr>
+		<%end%>
+		
+		<%if buyer_signed_in?%>
+		<%= render "comments/form" %>
+		<%elsif seller_signed_in? %>
+		<%else%>
+		sign in first
+		<%end%>
+
+	</div>
+	
+</div>
+

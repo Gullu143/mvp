@@ -1,0 +1,32 @@
+<div class="container py-5">
+
+<%= form_tag(search_path, method: "get") do %>
+<%=text_field_tag :query, nil, placeholder: "search", class: "form-control"%>
+    <%= submit_tag 'search'%>
+<%end%>
+
+	<div class="row">
+		<% @article.each do |article|%>
+
+		<div class="col-md-4 mb-3">
+			<%= link_to article_path(article) do %>
+			<div class="card">
+				<div class="card-body">
+			<%if article.image.attached?%>		
+				<%= image_tag (article.image), class: 'img-fluid' %>
+				<%else%>
+				<img src="/dummy.jpg" class="img-fluid">
+			<%end%>
+			<h1>	<%= article.title%></h1>
+			<p> <%=article.description%></p>
+		
+			
+			
+			
+		</div>
+		</div>
+		<%end%>
+		</div>
+		<%end%>
+	</div>
+</div>

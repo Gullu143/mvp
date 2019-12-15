@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="text-center">Sign up</h2>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="field mb-3">
+                <%= f.label :name %>
+                <%= f.text_field :name, class: 'form-control'%>
+              </div>
+
+              <div class="email_field mb-3">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+              </div>
+              <div class="field mb-3">
+                <%= f.label :phone_number %>
+                <%= f.number_field :phone_number, class: 'form-control'%>
+              </div>
+               <div class="field mb-3">
+                <%= f.label :profile_picture %>
+                 <%= f.file_field :image, class: 'form-control'%>
+              </div>
+              
+
+              <div class="field mb-3">
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+              </div>
+
+              <div class="field mb-3">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+              </div>
+
+              <div class="actions">
+              <center>  <%= f.submit "Sign up", class: 'btn btn-primary' %></center>
+              </div>
+            <% end %>
+            <%= render "sellers/shared/links" %>
+      </div>
+    </div>
+    
+</div>
+</div>

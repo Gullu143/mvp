@@ -1,0 +1,98 @@
+<div class="container pt-5">
+	<div class="row">
+		<div class="col-md-3 text-center">
+			<div class="card">
+				<div class="card-body">
+					<h4>total sellers</h4>
+					<%= Seller.count%>
+				</div>
+			</div>
+		
+		</div>
+		<div class="col-md-3 text-center">
+			<div class="card">
+				<div class="card-body">
+					<h4>total buyers</h4>
+					<%= Buyer.count%>
+				</div>
+			</div>
+		
+		</div>
+		<div class="col-md-3 text-center">
+			<div class="card">
+				<div class="card-body">
+					<h4>total articles</h4>
+					<%= Article.count%>
+				</div>
+			</div>
+		
+		</div>
+		<div class="col-md-3 text-center">
+			<div class="card">
+				<div class="card-body">
+					<h4>total salled articles</h4>
+					nan
+				</div>
+			</div>
+		
+		</div>
+	</div>	
+</div>
+
+<div class="container py-5">
+	<div class="row">	
+		<div class="col-md-4">
+			<h1>All list of sellers</h1>
+			<table class="table table-bordered">
+				<tr>
+					<th>name</th>
+					<th>action</th>
+				</tr>
+				<%@seller.each do |sellers|%>
+					<tr>
+						<td>
+							<%= sellers.name%>
+						</td>
+						<td>
+							<%= link_to "Destroy", seller_registration_path(sellers), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-primary btn-md" %>
+						</td>
+					</tr>
+				<%end%>
+			</table>
+		</div>
+		<div class="col-md-4">
+			<h1>All list of buyers</h1>
+			<table class="table table-bordered">
+				<tr>
+					<th>name</th>
+				</tr>
+				<%@buyer.each do |buyer|%>
+					<tr>
+						<td>
+							<%= buyer.email%>
+						</td>
+					</tr>
+				<%end%>
+			</table>
+		</div>
+		<div class="col-md-4">
+			<h1>Total articles</h1>
+			<table class="table table-bordered">
+				<tr>
+					<th>tilte</th>
+					<th>Action</th>
+				</tr>
+				<%@article.each do |article|%>
+					<tr>
+						<td>
+							<%= article.title%>
+						</td>
+						<td>
+							<%= link_to 'delete', article_path(article), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?'} %>
+						</td>
+					</tr>
+				<%end%>
+			</table>
+		</div>
+	</div>
+</div>

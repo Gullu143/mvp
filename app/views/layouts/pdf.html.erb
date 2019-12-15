@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mvp</title>
+  </head>
+  <style type="text/css">
+  	.img-pdf {
+  		width: 100%;
+  		height: 300px;
+  	}
+  </style>
+  <body>
+   <center><h1><%= @article.title%></h1></center>
+    <%= image_tag (@article.image), class:'img-pdf' if @article.image.attached?%>
+    <p> <%= @article.description%></p>
+</body>
+</html>
