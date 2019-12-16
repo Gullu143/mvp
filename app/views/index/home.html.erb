@@ -19,6 +19,7 @@
 			<%end%>
 			<h1>	<%= article.title%></h1>
 			<p> <%=article.description%></p>
+		<%= link_to 'DOWNLOAD PDF', article_path(article, format: :pdf),class: 'btn btn-primary' %>
 		</div>
 		</div>
 		<%end%>
@@ -26,6 +27,3 @@
 		<%end%>
 	</div>
 </div>
-
-
-hum pakistan
